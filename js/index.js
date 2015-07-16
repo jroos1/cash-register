@@ -11,5 +11,44 @@
 	// 
 	// });
 
+var total = 0;
 
+$(document).ready(function() {
 
+	$('#entry').submit(function(event) {
+		event.preventDefault();
+
+		//get input value
+		var newPrice = $('#newEntry').val();
+
+		//convert input value (string) to float
+		var newPriceFloat = parseFloat(newPrice);
+
+		//add number to total
+		total = total + newPriceFloat;
+
+		//format input to currency text
+		var priceText = convertNum(newPrice);
+		console.log(priceText);
+
+		//append new item line to entries
+		$('#entries').append('<p>' + priceText + '</p>');
+
+		//convert total number into currency text
+		var totalText = convertNum(total);
+
+		//render new total value
+		$('total').html(totalText);
+
+		//clear the entry input field
+		$('#newEntry').val('');
+
+	});
+
+	function convertNum(numInput) {
+		var currencyString = "$ " + numInput + ".00";
+		console.log(currencyString);
+		return currencyString;
+	}
+
+});
