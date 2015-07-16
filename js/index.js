@@ -38,7 +38,7 @@ $(document).ready(function() {
 		var totalText = convertNum(total);
 
 		//render new total value
-		$('total').html(totalText);
+		$('#total').html(totalText);
 
 		//clear the entry input field
 		$('#newEntry').val('');
